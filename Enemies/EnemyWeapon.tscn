@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Enemies/EnemyWeapon.gd" type="Script" id=1]
+[ext_resource path="res://Utils/RayCastVisualizer.tscn" type="PackedScene" id=2]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 1, 0, 0, 1 )
+
+[node name="EnemyWeapon" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="WeaponRayCast" type="RayCast" parent="."]
+enabled = true
+cast_to = Vector3( 0, 0, -20 )
+
+[node name="RayCastVisualizer" parent="WeaponRayCast" instance=ExtResource( 2 )]
+visible = false
+material/0 = SubResource( 1 )
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]

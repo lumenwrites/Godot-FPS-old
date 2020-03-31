@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Enemies/EnemyHealth.gd" type="Script" id=1]
+
+[sub_resource type="CubeMesh" id=1]
+size = Vector3( 1, 1, 1 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.0666667, 0.65098, 0.243137, 1 )
+
+[sub_resource type="CubeMesh" id=3]
+
+[sub_resource type="SpatialMaterial" id=4]
+albedo_color = Color( 0.219608, 1, 0, 1 )
+
+[node name="Healthbar" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.26952, 0 )
+script = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": "f"
+}
+
+[node name="CSGMesh" type="CSGMesh" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.2, 0, 0, 0, 0.02, 0, 0, 0 )
+mesh = SubResource( 1 )
+material = SubResource( 2 )
+
+[node name="CSGMesh2" type="CSGMesh" parent="CSGMesh"]
+transform = Transform( 0.970865, 0, 0, 0, 0.865362, 0, 0, 0, 1.47237, 0, 0, 0 )
+operation = 2
+mesh = SubResource( 1 )
+
+[node name="HealthProgress" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="HealthProgress"]
+transform = Transform( 0.5, 0, 0, 0, 0.1, 0, 0, 0, 0.015, 0.5, 0, 0 )
+mesh = SubResource( 3 )
+material/0 = SubResource( 4 )

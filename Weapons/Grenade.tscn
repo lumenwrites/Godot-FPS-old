@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Assets/models/grenade.fbx" type="PackedScene" id=1]
+[ext_resource path="res://Weapons/Grenade.gd" type="Script" id=2]
+
+[sub_resource type="PhysicsMaterial" id=1]
+bounce = 0.5
+
+[sub_resource type="SphereShape" id=2]
+radius = 0.217467
+
+[sub_resource type="SpatialMaterial" id=3]
+flags_transparent = true
+albedo_color = Color( 1, 0, 0, 0.313726 )
+
+[sub_resource type="SphereMesh" id=4]
+material = SubResource( 3 )
+flip_faces = true
+
+[sub_resource type="SphereShape" id=5]
+
+[node name="Grenade" type="RigidBody"]
+physics_material_override = SubResource( 1 )
+script = ExtResource( 2 )
+
+[node name="grenade" parent="." instance=ExtResource( 1 )]
+transform = Transform( 150, 0, 0, 0, 150, 0, 0, 0, 150, 0, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 2 )
+
+[node name="OmniLight" type="OmniLight" parent="."]
+light_color = Color( 1, 0.00392157, 0.00392157, 1 )
+light_energy = 2.0
+omni_attenuation = 0.450625
+
+[node name="DamageArea" type="Area" parent="."]
+collision_layer = 3
+collision_mask = 0
+
+[node name="ExplosionSphere" type="MeshInstance" parent="DamageArea"]
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="DamageArea"]
+shape = SubResource( 5 )
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+[connection signal="finished" from="AudioStreamPlayer3D" to="." method="_on_AudioStreamPlayer3D_finished"]

@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="CylinderMesh" id=2]
+top_radius = 0.01
+bottom_radius = 0.01
+height = 10.0
+radial_segments = 8
+rings = 1
+
+[node name="RayCastVisualizer" type="MeshInstance"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -5 )
+mesh = SubResource( 2 )
+material/0 = null

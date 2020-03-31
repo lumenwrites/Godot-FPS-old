@@ -1,0 +1,98 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Enemies/Enemy.gd" type="Script" id=1]
+[ext_resource path="res://Enemies/EnemyHealth.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Enemies/Hitbox.gd" type="Script" id=3]
+[ext_resource path="res://Enemies/EnemyWeapon.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Utils/RayCastVisualizer.tscn" type="PackedScene" id=5]
+
+[sub_resource type="CapsuleShape" id=1]
+radius = 0.5
+
+[sub_resource type="CubeMesh" id=2]
+size = Vector3( 0.75, 1.5, 0.75 )
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0.933333, 0.0235294, 0, 1 )
+
+[sub_resource type="SpatialMaterial" id=6]
+albedo_color = Color( 0.976471, 0.607843, 0.176471, 1 )
+
+[sub_resource type="CubeMesh" id=4]
+material = SubResource( 6 )
+size = Vector3( 0.5, 0.5, 0.5 )
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_color = Color( 0.996078, 0.0313726, 0.00784314, 1 )
+
+[sub_resource type="CubeMesh" id=7]
+material = SubResource( 6 )
+size = Vector3( 0.5, 0.5, 0.5 )
+
+[sub_resource type="SpatialMaterial" id=10]
+albedo_color = Color( 0.00784314, 0.0470588, 1, 1 )
+
+[sub_resource type="BoxShape" id=8]
+extents = Vector3( 0.25, 0.25, 0.25 )
+
+[sub_resource type="BoxShape" id=9]
+extents = Vector3( 0.375, 0.75, 0.375 )
+
+[node name="Enemy" type="KinematicBody"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1, 0 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0 )
+mesh = SubResource( 2 )
+material/0 = SubResource( 3 )
+
+[node name="MeshInstance2" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 0 )
+mesh = SubResource( 4 )
+material/0 = SubResource( 5 )
+
+[node name="MeshInstance3" type="MeshInstance" parent="."]
+transform = Transform( 0.347999, 0, 0, 0, 0.347999, 0, 0, 0, 0.347999, 0, 1.74096, -0.294839 )
+mesh = SubResource( 7 )
+material/0 = null
+
+[node name="PlayerLookAt" type="RayCast" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0 )
+enabled = true
+cast_to = Vector3( 0, 0, -100 )
+
+[node name="RayCastVisualizer" parent="PlayerLookAt" instance=ExtResource( 5 )]
+visible = false
+material/0 = SubResource( 10 )
+
+[node name="Healthbar" parent="." instance=ExtResource( 2 )]
+
+[node name="Hitboxes" type="Spatial" parent="."]
+
+[node name="Head" type="Area" parent="Hitboxes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 0 )
+collision_layer = 8
+collision_mask = 0
+script = ExtResource( 3 )
+damage_multiplier = 4.0
+
+[node name="CollisionShape" type="CollisionShape" parent="Hitboxes/Head"]
+shape = SubResource( 8 )
+
+[node name="Body" type="Area" parent="Hitboxes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0 )
+collision_layer = 8
+collision_mask = 0
+script = ExtResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Hitboxes/Body"]
+shape = SubResource( 9 )
+
+[node name="EnemyWeapon" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0 )

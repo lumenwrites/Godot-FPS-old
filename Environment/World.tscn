@@ -1,0 +1,156 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://GUI/HUD.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/models/robot01.obj" type="ArrayMesh" id=3]
+[ext_resource path="res://Assets/models/robot02.obj" type="ArrayMesh" id=4]
+[ext_resource path="res://Enemies/Enemy.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Environment/Ladder.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Enemies/Spawn.tscn" type="PackedScene" id=7]
+
+[sub_resource type="NavigationMesh" id=1]
+vertices = PoolVector3Array( -6.2, 0.201771, -7.79679, -3.8, 0.201771, -7.79679, -3.8, 0.201771, -11.9968, -6.5, 0.201771, -12.2968, -6.5, 0.201771, -12.2968, -6.2, 0.201771, -17.3968, -11.9, 0.201771, -17.3968, -6.5, 0.201771, -6.59679, -6.2, 0.201771, -7.79679, -6.5, 0.201771, -12.2968, -11.9, 0.201771, -17.3968, -11.9, 0.201771, -6.59679, 6.4, 0.201771, -7.79679, 6.7, 0.201771, -6.59679, 11.8, 0.201771, -6.59679, 6.4, 0.201771, -11.9968, 11.8, 0.201771, -17.3968, 6.4, 0.201771, -17.3968, 6.4, 0.201771, -11.9968, 11.8, 0.201771, -6.59679, -3.8, 0.201771, -11.9968, -3.8, 0.201771, -7.79679, 6.4, 0.201771, -7.79679, 6.4, 0.201771, -11.9968, -5.3, 4.60177, -16.1968, -5.3, 4.60177, -13.1968, 5.5, 4.60177, -13.1968, 5.5, 4.60177, -16.1968, -5, 0.201771, -15.8968, -5, 0.201771, -13.4968, 5.2, 0.201771, -13.4968, 5.2, 0.201771, -15.8968, 11.8, 0.201771, -6.59679, 6.7, 0.201771, -6.59679, 6.4, 0.201771, -5.69679, 11.8, 0.201771, 5.40321, -6.2, 0.201771, -5.69679, -6.5, 0.201771, -6.59679, -11.9, 0.201771, -6.59679, -11.9, 0.201771, 5.40321, 0.1, 0.201771, -5.69679, -6.2, 0.201771, -5.69679, -11.9, 0.201771, 5.40321, -0.2, 0.201771, 17.4032, 11.8, 0.201771, 17.4032, 11.8, 0.201771, 5.40321, -11.9, 0.201771, 5.40321, -11.9, 0.201771, 17.4032, -0.2, 0.201771, 17.4032, 11.8, 0.201771, 5.40321, 6.4, 0.201771, -5.69679, 0.1, 0.201771, -5.69679 )
+polygons = [ PoolIntArray( 3, 2, 0 ), PoolIntArray( 0, 2, 1 ), PoolIntArray( 6, 5, 4 ), PoolIntArray( 11, 10, 7 ), PoolIntArray( 7, 10, 8 ), PoolIntArray( 8, 10, 9 ), PoolIntArray( 15, 14, 12 ), PoolIntArray( 12, 14, 13 ), PoolIntArray( 19, 18, 16 ), PoolIntArray( 16, 18, 17 ), PoolIntArray( 23, 22, 20 ), PoolIntArray( 20, 22, 21 ), PoolIntArray( 27, 26, 24 ), PoolIntArray( 24, 26, 25 ), PoolIntArray( 31, 30, 28 ), PoolIntArray( 28, 30, 29 ), PoolIntArray( 35, 34, 32 ), PoolIntArray( 32, 34, 33 ), PoolIntArray( 39, 38, 36 ), PoolIntArray( 36, 38, 37 ), PoolIntArray( 45, 44, 40 ), PoolIntArray( 40, 44, 43 ), PoolIntArray( 40, 43, 41 ), PoolIntArray( 41, 43, 42 ), PoolIntArray( 48, 47, 46 ), PoolIntArray( 51, 50, 49 ) ]
+
+[node name="World" type="Spatial"]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.44047 )
+
+[node name="robot02" type="MeshInstance" parent="."]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 4.10297, 0, -2.90418 )
+visible = false
+mesh = ExtResource( 4 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+material/5 = null
+material/6 = null
+material/7 = null
+material/8 = null
+material/9 = null
+material/10 = null
+material/11 = null
+material/12 = null
+material/13 = null
+material/14 = null
+material/15 = null
+material/16 = null
+material/17 = null
+material/18 = null
+material/19 = null
+material/20 = null
+material/21 = null
+material/22 = null
+material/23 = null
+material/24 = null
+material/25 = null
+material/26 = null
+material/27 = null
+material/28 = null
+material/29 = null
+material/30 = null
+material/31 = null
+material/32 = null
+material/33 = null
+material/34 = null
+material/35 = null
+material/36 = null
+material/37 = null
+material/38 = null
+material/39 = null
+material/40 = null
+material/41 = null
+material/42 = null
+material/43 = null
+material/44 = null
+material/45 = null
+material/46 = null
+
+[node name="robot01" type="MeshInstance" parent="."]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, -3.87341 )
+visible = false
+mesh = ExtResource( 3 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+material/5 = null
+material/6 = null
+material/7 = null
+material/8 = null
+material/9 = null
+material/10 = null
+material/11 = null
+material/12 = null
+material/13 = null
+material/14 = null
+material/15 = null
+material/16 = null
+material/17 = null
+material/18 = null
+material/19 = null
+material/20 = null
+material/21 = null
+material/22 = null
+material/23 = null
+material/24 = null
+material/25 = null
+material/26 = null
+material/27 = null
+material/28 = null
+material/29 = null
+material/30 = null
+material/31 = null
+material/32 = null
+material/33 = null
+material/34 = null
+material/35 = null
+material/36 = null
+material/37 = null
+
+[node name="Ladder" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.5135 )
+
+[node name="HUD" parent="." instance=ExtResource( 2 )]
+
+[node name="Navigation" type="Navigation" parent="."]
+
+[node name="NavigationMeshInstance" type="NavigationMeshInstance" parent="Navigation"]
+navmesh = SubResource( 1 )
+
+[node name="CSGBox" type="CSGBox" parent="Navigation/NavigationMeshInstance" groups=[
+"walls",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0 )
+use_collision = true
+width = 25.0
+height = 1.0
+depth = 35.9936
+
+[node name="CSGBox2" type="CSGBox" parent="Navigation/NavigationMeshInstance" groups=[
+"walls",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -14.6769 )
+use_collision = true
+width = 11.7518
+height = 9.79646
+depth = 4.10322
+
+[node name="CSGBox3" type="CSGBox" parent="Navigation/NavigationMeshInstance" groups=[
+"walls",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -6.71789 )
+use_collision = true
+width = 11.7518
+height = 3.87828
+depth = 0.75845
+
+[node name="Enemy" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.626811, -9.53674e-07, -4.73013 )
+
+[node name="Spawn" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10.0323 )

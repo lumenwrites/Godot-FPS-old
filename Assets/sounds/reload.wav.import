@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/reload.wav-4b976759cef090789e606a9260b7d040.sample"
+
+[deps]
+
+source_file="res://Assets/sounds/reload.wav"
+dest_files=[ "res://.import/reload.wav-4b976759cef090789e606a9260b7d040.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
